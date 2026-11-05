@@ -39,12 +39,12 @@ VG-kraven.
 -   [X] Lägg upp React Router.
 -   [X] Skapa en gemensam layout för appens sidor.
 -   [X] Lägg till navigering mellan sidorna.
--   [*] Skapa startsidan med listan över spel.
--   [ ] Skapa en detaljsida för ett enskilt spel: `/games/:id`.
--   [ ] Skapa en sida eller vy med formulär för att lägga till ett nytt
+-   [X] Skapa startsidan med listan över spel.
+-   [X] Skapa en detaljsida för ett enskilt spel: `/games/:id`.
+-   [X] Skapa en sida eller vy med formulär för att lägga till ett nytt
     spel.
--   [ ] Skapa en 404-sida för okända routes.
--   [ ] Kontrollera att navigeringen fungerar och att layouten visas på
+-   [X] Skapa en 404-sida för okända routes.
+-   [X] Kontrollera att navigeringen fungerar och att layouten visas på
     rätt sidor.
 
 ## 4. API och dataflöde -- VG-grund
@@ -52,62 +52,62 @@ VG-kraven.
 Målet är att lägga fetch-logiken i egna hooks, inte direkt i
 sidkomponenterna.
 
--   [ ] Skapa `useGames(status)` för att hämta listan över spel,
+-   [X] Skapa `useGames(status)` för att hämta listan över spel,
     eventuellt filtrerad på status.
--   [ ] Skapa `useGame(id)` för att hämta ett enskilt spel.
--   [ ] Skapa `useSaveGame()` för att skapa, ändra och ta bort spel.
--   [ ] Samla gärna hooksen i `src/hooks/useGames.ts`, enligt uppgiftens
+-   [X] Skapa `useGame(id)` för att hämta ett enskilt spel.
+-   [] Skapa `useSaveGame()` för att skapa, ändra och ta bort spel.
+-   [X] Samla gärna hooksen i `src/hooks/useGames.ts`, enligt uppgiftens
     exempel.
--   [ ] Se till att hooksen hanterar laddning och fel på ett tydligt
+-   [X] Se till att hooksen hanterar laddning och fel på ett tydligt
     sätt.
--   [ ] Se till att komponenterna använder hooksen i stället för att
+-   [X] Se till att komponenterna använder hooksen i stället för att
     själva innehålla fetch-logik.
 
 ## 5. Spelöversikten och statusfilter
 
--   [ ] Hämta och visa alla spel.
--   [ ] Visa spelen i en tydlig lista eller motsvarande översikt.
--   [ ] Skapa filterknapparna All, Want to play, Playing, Completed och
+-   [X] Hämta och visa alla spel.
+-   [X] Visa spelen i en tydlig lista eller motsvarande översikt.
+-   [X] Skapa filterknapparna All, Want to play, Playing, Completed och
     Dropped.
--   [ ] Låt varje filter visa endast spel med vald status.
--   [ ] Låt All visa alla spel.
--   [ ] Kontrollera att filtret fungerar när användaren byter mellan
+-   [X] Låt varje filter visa endast spel med vald status.
+-   [X] Låt All visa alla spel.
+-   [X] Kontrollera att filtret fungerar när användaren byter mellan
     alternativen.
--   [ ] Visa en laddningsindikator medan listans data hämtas.
--   [ ] Visa ett begripligt felmeddelande om listan inte kan hämtas.
+-   [X] Visa en laddningsindikator medan listans data hämtas.
+-   [X] Visa ett begripligt felmeddelande om listan inte kan hämtas.
 
 ## 6. Detaljsida för ett spel
 
--   [ ] Hämta spelet med API:ts `GET /games/:id`.
--   [ ] Visa spelets omslag (`coverUrl`).
--   [ ] Visa spelets titel.
--   [ ] Visa plattform (`platform`).
--   [ ] Visa betyg (`rating`).
--   [ ] Visa anteckningar (`notes`).
--   [ ] Visa en laddningsindikator medan spelet hämtas.
--   [ ] Hantera och visa fel om spelet inte kan hämtas.
--   [ ] Hantera ett spel som inte finns och visa 404 när API:t svarar
+-   [X] Hämta spelet med API:ts `GET /games/:id`.
+-   [X] Visa spelets omslag (`coverUrl`).
+-   [X] Visa spelets titel.
+-   [X] Visa plattform (`platform`).
+-   [X] Visa betyg (`rating`).
+-   [X] Visa anteckningar (`notes`).
+-   [X] Visa en laddningsindikator medan spelet hämtas.
+-   [X] Hantera och visa fel om spelet inte kan hämtas.
+-   [X] Hantera ett spel som inte finns och visa 404 när API:t svarar
     med 404.
 
 ## 7. Skapa, ändra och ta bort spel (CRUD)
 
 ### Skapa spel
 
--   [ ] Skapa ett formulär för ett nytt spel.
--   [ ] Formuläret ska kunna skicka de obligatoriska fälten `title`,
+-   [X] Skapa ett formulär för ett nytt spel.
+-   [X] Formuläret ska kunna skicka de obligatoriska fälten `title`,
     `platform` och `status`.
--   [ ] Skicka spelet med `POST /games`.
--   [ ] Hantera fel om skapandet misslyckas.
--   [ ] Ge användaren återkoppling efter att spelet har skapats.
--   [ ] Kontrollera att det nya spelet dyker upp i listan.
+-   [X] Skicka spelet med `POST /games`.
+-   [X] Hantera fel om skapandet misslyckas.
+-   [X] Ge användaren återkoppling efter att spelet har skapats.
+-   [X] Kontrollera att det nya spelet dyker upp i listan.
 
 ### Ändra spel
 
--   [ ] Gör det möjligt att ändra ett befintligt spel.
--   [ ] Gör det möjligt att ändra exempelvis status och betyg.
+-   [X] Gör det möjligt att ändra ett befintligt spel.
+-   [X] Gör det möjligt att ändra exempelvis status och betyg.
 -   [ ] Skicka endast de fält som ska ändras med `PATCH /games/:id`.
--   [ ] Hantera fel om uppdateringen misslyckas.
--   [ ] Kontrollera att ändringarna visas på rätt sätt efteråt.
+-   [X] Hantera fel om uppdateringen misslyckas.
+-   [X] Kontrollera att ändringarna visas på rätt sätt efteråt.
 
 ### Ta bort spel
 
@@ -130,24 +130,24 @@ sidkomponenterna.
 
 ## 9. VG -- spara statusfiltret
 
--   [ ] Återanvänd eller skapa en `useLocalStorage`-hook.
--   [ ] Spara det valda statusfiltret i `localStorage`.
--   [ ] Läs in det sparade filtret när appen startar.
--   [ ] Se till att valt filter ligger kvar efter omladdning av sidan.
--   [ ] Kontrollera att rätt spel visas när appen öppnas med ett
+-   [X] Återanvänd eller skapa en `useLocalStorage`-hook.
+-   [X] Spara det valda statusfiltret i `localStorage`.
+-   [X] Läs in det sparade filtret när appen startar.
+-   [X] Se till att valt filter ligger kvar efter omladdning av sidan.
+-   [X] Kontrollera att rätt spel visas när appen öppnas med ett
     tidigare sparat filter.
 
 ## 10. Felhantering och sluttest
 
--   [ ] Kontrollera `response.ok` vid fetch-anrop där det är relevant.
--   [ ] Visa ett begripligt felmeddelande när ett API-anrop misslyckas.
--   [ ] Testa att listan laddas korrekt.
--   [ ] Testa samtliga statusfilter.
--   [ ] Testa att statusfiltret finns kvar efter omladdning.
--   [ ] Testa att öppna ett spel från listan.
--   [ ] Testa att öppna en speladress med ett ogiltigt ID.
--   [ ] Testa att skapa ett spel.
--   [ ] Testa att ändra ett spel.
+-   [X] Kontrollera `response.ok` vid fetch-anrop där det är relevant.
+-   [X] Visa ett begripligt felmeddelande när ett API-anrop misslyckas.
+-   [X] Testa att listan laddas korrekt.
+-   [X] Testa samtliga statusfilter.
+-   [X] Testa att statusfiltret finns kvar efter omladdning.
+-   [X] Testa att öppna ett spel från listan.
+-   [X] Testa att öppna en speladress med ett ogiltigt ID.
+-   [X] Testa att skapa ett spel.
+-   [X] Testa att ändra ett spel.
 -   [ ] Testa att ta bort ett spel.
 -   [ ] Kontrollera laddningsindikatorer för både listan och
     detaljsidan.
@@ -192,16 +192,16 @@ Design och extra funktioner väljer du själv.
 
 -   [ ] Sidor: lista med alla spel, en sida per spel (`/games/:id`),
     formulär för nytt spel och en 404-sida.
--   [ ] Routing: React Router med layout och navigering.
--   [ ] Filter: knappar för All, Want to play, Playing, Completed och
+-   [X] Routing: React Router med layout och navigering.
+-   [X] Filter: knappar för All, Want to play, Playing, Completed och
     Dropped.
 -   [ ] CRUD: hämta, skapa, ändra och ta bort spel.
--   [ ] Komponenter: appen är uppdelad i komponenter som får data via
+-   [X] Komponenter: appen är uppdelad i komponenter som får data via
     props.
--   [ ] Laddning: indikator medan data hämtas, både för listan och
+-   [X] Laddning: indikator medan data hämtas, både för listan och
     detaljsidan.
--   [ ] Fel: kontroll av `response.ok` och meddelande när något går fel.
--   [ ] TypeScript: en typ för ett spel.
+-   [X] Fel: kontroll av `response.ok` och meddelande när något går fel.
+-   [X] TypeScript: en typ för ett spel.
 -   [ ] Appen är deployad på Vercel och har en README.
 
 ### VG -- alla G-krav plus följande

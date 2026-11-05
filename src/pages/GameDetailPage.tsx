@@ -1,5 +1,6 @@
 import useQuest from "../hooks/useQuest";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function GameDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -20,6 +21,9 @@ function GameDetailPage() {
         <p>Notes: {game.notes}</p>
       </div>
     )}
+    <Link to={`/games/${id}/edit`} className="text-blue-500 hover:underline">
+      Edit Game
+    </Link>
   </section>);
 }
 

@@ -1,12 +1,11 @@
-import type { Game, Status } from "../types/types";
+import type { Game, GameFormData, Status } from "../types/types";
 import { useState } from "react";
-type GameFormData = Omit<Game, 'id'>;
 
 const initialFormData: GameFormData = {
   title: '',
   platform: '',
   status:'want',
-  rating: 0,
+  rating: null,
   coverUrl: '',
   notes: ''
 }
@@ -18,22 +17,37 @@ const statusOptions: { label: string; value: Status }[] = [
   { label: 'Dropped', value: 'dropped' },
 ];
 
+type GameFormProps = {
+  initialData?: GameFormData;
+  onSave: (data: GameFormData) => Promise<Game | undefined>;
+  isSaving: boolean;
+  error: string;
+  submitLabel: string;
+};
 
-function GameForm() {
-  const [gameData, setGameData] = useState<GameFormData>(initialFormData);
+function GameForm({
+  initialData,
+  onSave,
+  isSaving,
+  error,
+  submitLabel
+}: GameFormProps) {
+const [gameData, setGameData] = useState<GameFormData>(
+  initialData ?? initialFormData
+);
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
   const { name, value } = e.target;
   setGameData((prevData) => ({
     ...prevData,
-    [name]: name === 'rating' ? Number(value) : value
+    [name]: name === 'rating'
+    ? (value === '' ? null : Number(value)) : value
   }));
 };
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-  console.log(gameData);
-  setGameData(initialFormData);
+  await onSave(gameData);
 }
 
 
@@ -45,6 +59,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     <input
     type="text"
     name="title"
+    required
+    maxLength={100}
     value={gameData.title}
     onChange={handleChange}
     />
@@ -54,6 +70,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     <input
     type="text"
     name="coverUrl"
+    pattern="https?://.+"
+    title="Must start with http:// or https://"
     value={gameData.coverUrl}
     onChange={handleChange}
     />
@@ -63,6 +81,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     <input
     type="text"
     name="platform"
+    required
+    maxLength={40}
     value={gameData.platform}
     onChange={handleChange}
     />
@@ -86,7 +106,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     <input
     type="number"
     name="rating"
-    min={0}
+    min={1}
     max={5}
     step={1}
     value={gameData.rating ?? ''}
@@ -97,11 +117,18 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     Notes:
     <textarea
     name="notes"
+    maxLength={1000}
     value={gameData.notes}
     onChange={handleChange}
     />
     </label>
-    <button type="submit">Add game</button>
+    <button
+    type="submit"
+    disabled={isSaving}
+    >{submitLabel}</button>
+    {error && <p className="text-red-500">{error}</p>}
+    {isSaving && <p>Saving game...</p>}
+    {/* {!error && !isSaving && game && <p className="text-green-500">Game saved successfully!</p>} */}
     </form>
     </section>
   )

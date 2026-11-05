@@ -11,3 +11,5 @@ export type Game = {
 export type Status = 'want' | 'playing' | 'completed' | 'dropped';
 
 export type Filter = 'all' | Status;
+
+export type GameFormData = Omit<Game, 'id'>;
