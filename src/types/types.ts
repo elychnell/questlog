@@ -8,4 +8,4 @@ export type Game = {
   notes: string;
 };
 
-export type Filter = 'all' | 'want-to-play' | 'playing' | 'completed' | 'dropped';
+export type Filter = 'all' | 'want' | 'playing' | 'completed' | 'dropped';
