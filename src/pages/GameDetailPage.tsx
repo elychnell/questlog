@@ -1,10 +1,20 @@
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useGame from "../hooks/useGame";
+import { useDeleteGame } from "../hooks/useGames";
 
 function GameDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { game, isLoading, error } = useGame(id);
+  const { deleteGame, isDeleting, error:deleteError } = useDeleteGame(id);
+  const navigate = useNavigate();
+  
+const handleDeleteGame = async () => {
+  const confirmed = window.confirm("Are you sure you want to delete this game?");
+  if (!confirmed) { return; }
+
+  const isDeleted = await deleteGame();
+  if (isDeleted) { navigate('/'); }
+  };
 
   return (<section>
     <h1>Game details</h1>
@@ -19,11 +29,12 @@ function GameDetailPage() {
         <p>Status: {game.status}</p>
         <p>Rating: {game.rating}</p>
         <p>Notes: {game.notes}</p>
+        <Link to={`/games/${id}/edit`} className="text-blue-500 hover:underline">Edit Game</Link>
+        <button onClick={handleDeleteGame} disabled={isDeleting}>Delete Game</button>
       </div>
     )}
-    <Link to={`/games/${id}/edit`} className="text-blue-500 hover:underline">
-      Edit Game
-    </Link>
+    {isDeleting && <p>Deleting game...</p>}
+    {deleteError && <p className="text-red-500">{deleteError}</p>}
   </section>);
 }
 
