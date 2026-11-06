@@ -1,12 +1,12 @@
 import FilterList from "../components/FilterList";
 import useLocalStorage from "../hooks/useLocalStorage";
 import type { Filter } from "../types/types";
-import useQuests from "../hooks/useQuests";
+import useGames from "../hooks/useGames";
 import { Link } from "react-router-dom";
 
 function HomePage() {
 const [activeFilter, setActiveFilter] = useLocalStorage<Filter>('gameFilter', 'all');
-const { games, isLoading, error } = useQuests(activeFilter);
+const { games, isLoading, error } = useGames(activeFilter);
 
   return (
   <section>

@@ -1,10 +1,10 @@
-import useQuest from "../hooks/useQuest";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useGame from "../hooks/useGame";
 
 function GameDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const { game, isLoading, error } = useQuest(id);
+  const { game, isLoading, error } = useGame(id);
 
   return (<section>
     <h1>Game details</h1>

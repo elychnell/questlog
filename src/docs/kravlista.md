@@ -149,7 +149,7 @@ sidkomponenterna.
 -   [X] Testa att skapa ett spel.
 -   [X] Testa att ändra ett spel.
 -   [ ] Testa att ta bort ett spel.
--   [ ] Kontrollera laddningsindikatorer för både listan och
+-   [X] Kontrollera laddningsindikatorer för både listan och
     detaljsidan.
 -   [ ] Kontrollera felmeddelanden genom att testa relevanta
     felsituationer.

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Game } from "../types/types";
 
 
-function useQuest(id: string | undefined) {
+function useGame(id: string | undefined) {
 const [game, setGame] = useState<Game | null>(null);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState('');
@@ -33,5 +33,5 @@ setIsLoading(true);
   return { game, isLoading, error };
 }
 
-export default useQuest;
+export default useGame;
 

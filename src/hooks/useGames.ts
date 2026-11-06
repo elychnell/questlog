@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Filter, Game, GameFormData } from "../types/types";
 
-function useQuests(activeFilter: Filter) {
+function useGames(activeFilter: Filter) {
 const [games, setGames] = useState<Game[]>([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState('');
@@ -34,7 +34,7 @@ setIsLoading(true);
   return { games, isLoading, error };
 }
 
-export default useQuests;
+export default useGames;
 
 export function useSaveGame() {
     
@@ -77,13 +77,16 @@ export function useUpdateGame(id: string | undefined) {
 const [game, setGame] = useState<Game | null>(null);
 const [isSaving, setIsSaving] = useState(false);
 const [error, setError] = useState('');
-  
-const updateGame = async (gameData: GameFormData): Promise<Game | undefined> => {
+
+
+
+const updateGame = async (gameData: Partial<GameFormData>): Promise<Game | undefined> => {
 setError('');
 if (!id) {
   setError('Game ID is missing');
   return;
 }
+
 setIsSaving(true);
   try {
     const url ='https://questlog-api.vercel.app/api/emil-l/games/' + id;
@@ -110,4 +113,43 @@ setIsSaving(true);
 };
 
   return { game, isSaving, error, updateGame };
+}
+
+export function useDeleteGame(id: string | undefined) {
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [error, setError] = useState('');
+
+  const deleteGame = async (): Promise<boolean> => {
+    setError('');
+
+    if (!id) {
+      setError('Game ID is missing');
+      return false;
+    }
+
+    setIsDeleting(true);
+
+    try {
+      const url = 'https://questlog-api.vercel.app/api/emil-l/games/' + id;
+      const response = await fetch(url, {method: 'DELETE'});
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return true;
+
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('An unknown error occurred');
+      }
+      return false;
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  return { isDeleting, error, deleteGame };
 }

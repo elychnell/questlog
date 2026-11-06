@@ -1,6 +1,6 @@
 import GameForm from "../components/GameForm";
-import { useSaveGame } from "../hooks/useQuests";
-import {useNavigate} from "react-router-dom";
+import { useSaveGame } from "../hooks/useGames";
+import { useNavigate } from "react-router-dom";
 import type { GameFormData } from "../types/types";
 
 function NewGamePage() {
