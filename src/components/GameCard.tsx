@@ -9,10 +9,10 @@ function GameCard({ game, showNotes = false}: GameCardProps) {
   return (
     <div>
     <h2>{game.title}</h2>
-    <img src={game.coverUrl} alt={`${game.title} cover`} />
+    <img src={game.coverUrl === null ? "../assets/placeholderBox.webp" : game.coverUrl} alt={`${game.title} cover`} />
     <p>Platform: {game.platform}</p>
     <p>Status: {game.status}</p>
-    <p>Rating: {game.rating}</p>
+    <p>Rating: {game.rating === null ? "Not rated" : game.rating}</p>
     {showNotes && (<p>Notes: {game.notes}</p>)}
     </div>
   )
