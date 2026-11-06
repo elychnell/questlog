@@ -55,7 +55,7 @@ sidkomponenterna.
 -   [X] Skapa `useGames(status)` för att hämta listan över spel,
     eventuellt filtrerad på status.
 -   [X] Skapa `useGame(id)` för att hämta ett enskilt spel.
--   [] Skapa `useSaveGame()` för att skapa, ändra och ta bort spel.
+-   [X] Skapa `useSaveGame()` för att skapa, ändra och ta bort spel.
 -   [X] Samla gärna hooksen i `src/hooks/useGames.ts`, enligt uppgiftens
     exempel.
 -   [X] Se till att hooksen hanterar laddning och fel på ett tydligt
@@ -105,16 +105,16 @@ sidkomponenterna.
 
 -   [X] Gör det möjligt att ändra ett befintligt spel.
 -   [X] Gör det möjligt att ändra exempelvis status och betyg.
--   [ ] Skicka endast de fält som ska ändras med `PATCH /games/:id`.
+-   [X] Skicka endast de fält som ska ändras med `PATCH /games/:id`.
 -   [X] Hantera fel om uppdateringen misslyckas.
 -   [X] Kontrollera att ändringarna visas på rätt sätt efteråt.
 
 ### Ta bort spel
 
--   [ ] Lägg till en funktion för att ta bort ett spel.
--   [ ] Skicka `DELETE /games/:id`.
--   [ ] Hantera fel om borttagningen misslyckas.
--   [ ] Kontrollera att spelet försvinner ur listan efter borttagning.
+-   [X] Lägg till en funktion för att ta bort ett spel.
+-   [X] Skicka `DELETE /games/:id`.
+-   [X] Hantera fel om borttagningen misslyckas.
+-   [X] Kontrollera att spelet försvinner ur listan efter borttagning.
 
 ## 8. Komponentuppdelning och props
 
@@ -148,13 +148,13 @@ sidkomponenterna.
 -   [X] Testa att öppna en speladress med ett ogiltigt ID.
 -   [X] Testa att skapa ett spel.
 -   [X] Testa att ändra ett spel.
--   [ ] Testa att ta bort ett spel.
+-   [X] Testa att ta bort ett spel.
 -   [X] Kontrollera laddningsindikatorer för både listan och
     detaljsidan.
--   [ ] Kontrollera felmeddelanden genom att testa relevanta
+-   [X] Kontrollera felmeddelanden genom att testa relevanta
     felsituationer.
--   [ ] Kör `npm run typecheck`.
--   [ ] Kör `npm run build`.
+-   [X] Kör `npm run typecheck`.
+-   [X] Kör `npm run build`.
 
 ## 11. Design och användarupplevelse
 
@@ -190,12 +190,12 @@ Design och extra funktioner väljer du själv.
 
 ### G -- samtliga krav ska vara uppfyllda
 
--   [ ] Sidor: lista med alla spel, en sida per spel (`/games/:id`),
+-   [X] Sidor: lista med alla spel, en sida per spel (`/games/:id`),
     formulär för nytt spel och en 404-sida.
 -   [X] Routing: React Router med layout och navigering.
 -   [X] Filter: knappar för All, Want to play, Playing, Completed och
     Dropped.
--   [ ] CRUD: hämta, skapa, ändra och ta bort spel.
+-   [X] CRUD: hämta, skapa, ändra och ta bort spel.
 -   [X] Komponenter: appen är uppdelad i komponenter som får data via
     props.
 -   [X] Laddning: indikator medan data hämtas, både för listan och
@@ -206,11 +206,11 @@ Design och extra funktioner väljer du själv.
 
 ### VG -- alla G-krav plus följande
 
--   [ ] All fetch-logik ligger i egna custom hooks, inte i
+-   [X] All fetch-logik ligger i egna custom hooks, inte i
     komponenterna.
--   [ ] Det finns hooks motsvarande `useGames(status)`, `useGame(id)`
+-   [X] Det finns hooks motsvarande `useGames(status)`, `useGame(id)`
     och `useSaveGame()`.
--   [ ] Det valda statusfiltret sparas med en `useLocalStorage`-hook.
+-   [X] Det valda statusfiltret sparas med en `useLocalStorage`-hook.
 -   [ ] README förklarar kort hur hooksen fungerar och varför lösningen
     är uppbyggd så.
 

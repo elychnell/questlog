@@ -3,6 +3,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import type { Filter } from "../types/types";
 import useGames from "../hooks/useGames";
 import { Link } from "react-router-dom";
+import GameCard from "../components/GameCard";
 
 function HomePage() {
 const [activeFilter, setActiveFilter] = useLocalStorage<Filter>('gameFilter', 'all');
@@ -20,13 +21,7 @@ const { games, isLoading, error } = useGames(activeFilter);
     {!isLoading && !error && games.length === 0 && <p>No games found.</p>}
     {!isLoading && !error && games.map((game) => (
       <Link to={`/games/${game.id}`}>
-      <div key={game.id} className="flex flex-col items-center border border-surface-secondary py-4">
-        <h3 className="text-lg font-semibold text-text max-w-[10em] text-center">{game.title}</h3>
-        <img src={game.coverUrl} alt={`${game.title} cover`} className="w-32 h-auto my-2" />
-        <p className="text-sm text-text-secondary">Platform: {game.platform}</p>
-        <p className="text-sm text-text-secondary">Status: {game.status}</p>
-        <p className="text-sm text-text-secondary">Rating: {game.rating}</p>
-      </div>
+        <GameCard game={game} />
       </Link>
     ))}
     </div>
