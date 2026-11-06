@@ -49,7 +49,7 @@ console.log('PATCH payload:', changedData);
   return updatedGame;
 }
 if (isLoading) return <p>Loading game...</p>;
-if (fetchError) return <p>{fetchError}</p>;
+if (fetchError) return <p className="whitespace-pre-line">{fetchError}</p>;
 if (!game) return <p>Game not found.</p>;
 return (<section>
   <h1>Edit a game</h1>

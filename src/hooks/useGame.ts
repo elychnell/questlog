@@ -21,9 +21,14 @@ setIsLoading(true);
     const data = await response.json();
     setGame(data);
   } catch (error) {
-    if (error instanceof Error) {
-      setError(error.message);
-    } else { setError('An unknown error occurred'); }
+  if (error instanceof Error && error.message.includes('404')) {
+    setError(`Spelet kunde inte hittas.
+      Det kan ha tagits bort eller så är länken ogiltig.
+      ${error.message}`);
+  } else {
+    setError(`Något gick fel när spelet skulle hämtas.
+    ${error instanceof Error ? error.message : 'Okänt fel'}`);
+  }
   } finally {
     setIsLoading(false);
   }

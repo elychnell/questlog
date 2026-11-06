@@ -126,9 +126,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     type="submit"
     disabled={isSaving}
     >{submitLabel}</button>
-    {error && <p className="text-red-500">{error}</p>}
+    {error && <p className="whitespace-pre-line text-red-500">{error}</p>}
     {isSaving && <p>Saving game...</p>}
-    {/* {!error && !isSaving && game && <p className="text-green-500">Game saved successfully!</p>} */}
     </form>
     </section>
   )

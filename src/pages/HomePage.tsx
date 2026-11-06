@@ -16,7 +16,7 @@ const { games, isLoading, error } = useGames(activeFilter);
   <FilterList activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
   <div className="flex justify-center flex-col gap-2 mt-4">
     {isLoading && <p>Loading games...</p>}
-    {error && <p>{error}</p>}
+    {error && <p className="whitespace-pre-line">{error}</p>}
     {!isLoading && !error && games.length === 0 && <p>No games found.</p>}
     {!isLoading && !error && games.map((game) => (
       <Link to={`/games/${game.id}`}>

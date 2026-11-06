@@ -19,7 +19,7 @@ const handleDeleteGame = async () => {
   return (<section>
     <h1>Game details</h1>
     {isLoading && <p>Loading game details...</p>}
-    {error && <p>{error}</p>}
+    {error && <p className="whitespace-pre-line">{error}</p>}
     {!isLoading && !error && !game && (<p>Game not found.</p>)}
     {!isLoading && !error && game && (
       <div>
