@@ -15,12 +15,12 @@ const { games, isLoading, error } = useGames(activeFilter);
     Games List
   </h2>
   <FilterList activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
-  <div className="flex justify-center flex-col gap-2 mt-4">
+  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-4">
     {isLoading && <p>Loading games...</p>}
     {error && <p className="whitespace-pre-line">{error}</p>}
     {!isLoading && !error && games.length === 0 && <p>No games found.</p>}
     {!isLoading && !error && games.map((game) => (
-      <Link to={`/games/${game.id}`}>
+      <Link key={game.id} to={`/games/${game.id}`}>
         <GameCard game={game} />
       </Link>
     ))}
