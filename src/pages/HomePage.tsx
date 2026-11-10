@@ -14,7 +14,6 @@ const [activeFilter, setActiveFilter] = useLocalStorage<Filter>('gameFilter', 'a
 const { games, isLoading, error } = useGames(activeFilter);
 const [sortBy, setSortBy] = useState<SortOption>("title");
 const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
-
 const { enrichGame } = useSteamData(games);
 const enrichedGames = games.map(enrichGame);
 

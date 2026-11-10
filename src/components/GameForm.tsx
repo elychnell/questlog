@@ -19,7 +19,11 @@ const statusOptions: { label: string; value: Status }[] = [
 
 type GameFormProps = {
   initialData?: GameFormData;
-  onSave: (data: GameFormData) => Promise<Game | undefined>;
+  initialPlaytime?: number | null;
+  onSave: (
+  data: GameFormData,
+  playtime: number | null
+  ) => Promise<Game | undefined>;
   isSaving: boolean;
   error: string;
   submitLabel: string;
@@ -27,6 +31,7 @@ type GameFormProps = {
 
 function GameForm({
   initialData,
+  initialPlaytime = null,
   onSave,
   isSaving,
   error,
@@ -35,6 +40,9 @@ function GameForm({
 const [gameData, setGameData] = useState<GameFormData>(
   initialData ?? initialFormData
 );
+const [playtime, setPlaytime] = useState<number | null>(
+    initialPlaytime
+  );
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
   const { name, value } = e.target;
@@ -45,9 +53,16 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
   }));
 };
 
+const handlePlaytimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const value = e.target.value.replace(',', '.');
+  setPlaytime(
+    value === '' ? null : Number(value) * 60
+  );
+};
+
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-  await onSave(gameData);
+  await onSave(gameData, playtime);
 }
 
 const inputStyle =
@@ -93,6 +108,18 @@ const labelStyle =
     maxLength={40}
     value={gameData.platform}
     onChange={handleChange}
+    />
+    </label>
+    <label className={labelStyle}>
+    Playtime:
+    <input
+    className={inputStyle}
+    type="number"
+    name="playtime"
+    min={0}
+    step={0.5}
+    value={playtime !== null ? playtime / 60 : ''}
+    onChange={handlePlaytimeChange}
     />
     </label>
     <label className={labelStyle}>

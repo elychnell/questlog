@@ -3,15 +3,26 @@ import { useSaveGame } from "../hooks/useGames";
 import { Link, useNavigate } from "react-router-dom";
 import type { GameFormData } from "../types/types";
 import { ArrowLeft } from "lucide-react";
+import useSteamData from "../hooks/useSteamData";
 
 function NewGamePage() {
 
 const { saveGame, isSaving, error } = useSaveGame();
+const { setManualPlaytimes } = useSteamData([]);
 
 const navigate = useNavigate();
-const handleSaveGame = async (gameData: GameFormData) => {
+
+const handleSaveGame = async (gameData: GameFormData, playtime: number | null) => {
   const savedGame = await saveGame(gameData);
+  
   if (savedGame) {
+    if (playtime !== null) {
+      setManualPlaytimes((prev) => ({
+        ...prev,
+        [savedGame.id]: playtime,
+      }));
+    }
+
     setTimeout(() => {
     navigate(`/games/${savedGame.id}`);
   }, 1000);

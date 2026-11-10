@@ -1,0 +1,522 @@
+[
+  {
+    "appId": 10,
+    "title": "Counter-Strike",
+    "playtime": 120
+  },
+  {
+    "appId": 20,
+    "title": "Team Fortress Classic",
+    "playtime": 0
+  },
+  {
+    "appId": 30,
+    "title": "Day of Defeat",
+    "playtime": 96
+  },
+  {
+    "appId": 40,
+    "title": "Deathmatch Classic",
+    "playtime": 0
+  },
+  {
+    "appId": 50,
+    "title": "Half-Life: Opposing Force",
+    "playtime": 0
+  },
+  {
+    "appId": 60,
+    "title": "Ricochet",
+    "playtime": 0
+  },
+  {
+    "appId": 70,
+    "title": "Half-Life",
+    "playtime": 0
+  },
+  {
+    "appId": 130,
+    "title": "Half-Life: Blue Shift",
+    "playtime": 0
+  },
+  {
+    "appId": 440,
+    "title": "Team Fortress 2",
+    "playtime": 34386
+  },
+  {
+    "appId": 500,
+    "title": "Left 4 Dead",
+    "playtime": 3186
+  },
+  {
+    "appId": 570,
+    "title": "Dota 2",
+    "playtime": 92274
+  },
+  {
+    "appId": 730,
+    "title": "Counter-Strike 2",
+    "playtime": 271506
+  },
+  {
+    "appId": 1200,
+    "title": "Red Orchestra: Ostfront 41-45",
+    "playtime": 13314
+  },
+  {
+    "appId": 1230,
+    "title": "Mare Nostrum",
+    "playtime": 6
+  },
+  {
+    "appId": 1250,
+    "title": "Killing Floor",
+    "playtime": 2334
+  },
+  {
+    "appId": 1280,
+    "title": "Darkest Hour: Europe '44-'45",
+    "playtime": 8790
+  },
+  {
+    "appId": 22100,
+    "title": "Mount & Blade",
+    "playtime": 0
+  },
+  {
+    "appId": 24860,
+    "title": "Battlefield 2",
+    "playtime": 924
+  },
+  {
+    "appId": 33910,
+    "title": "Arma 2",
+    "playtime": 114
+  },
+  {
+    "appId": 33930,
+    "title": "Arma 2: Operation Arrowhead",
+    "playtime": 12054
+  },
+  {
+    "appId": 34030,
+    "title": "Total War: NAPOLEON - Definitive Edition",
+    "playtime": 198
+  },
+  {
+    "appId": 35420,
+    "title": "Killing Floor Mod: Defence Alliance 2",
+    "playtime": 0
+  },
+  {
+    "appId": 35450,
+    "title": "Rising Storm/Red Orchestra 2 Multiplayer",
+    "playtime": 15858
+  },
+  {
+    "appId": 38400,
+    "title": "Fallout",
+    "playtime": 0
+  },
+  {
+    "appId": 38410,
+    "title": "Fallout 2",
+    "playtime": 0
+  },
+  {
+    "appId": 38420,
+    "title": "Fallout Tactics",
+    "playtime": 0
+  },
+  {
+    "appId": 42160,
+    "title": "War of the Roses",
+    "playtime": 426
+  },
+  {
+    "appId": 48700,
+    "title": "Mount & Blade: Warband",
+    "playtime": 2514
+  },
+  {
+    "appId": 48720,
+    "title": "Mount & Blade: With Fire and Sword",
+    "playtime": 0
+  },
+  {
+    "appId": 49400,
+    "title": "Magic: The Gathering - Duels of the Planeswalkers",
+    "playtime": 2238
+  },
+  {
+    "appId": 58610,
+    "title": "Wargame: European Escalation",
+    "playtime": 96
+  },
+  {
+    "appId": 64000,
+    "title": "Men of War: Assault Squad",
+    "playtime": 2298
+  },
+  {
+    "appId": 65700,
+    "title": "Arma 2: British Armed Forces",
+    "playtime": 0
+  },
+  {
+    "appId": 104700,
+    "title": "Super Monday Night Combat",
+    "playtime": 24
+  },
+  {
+    "appId": 105600,
+    "title": "Terraria",
+    "playtime": 18
+  },
+  {
+    "appId": 107410,
+    "title": "Arma 3",
+    "playtime": 2694
+  },
+  {
+    "appId": 206980,
+    "title": "War of the Roses Balance Beta",
+    "playtime": 2118
+  },
+  {
+    "appId": 218130,
+    "title": "Dungeonland",
+    "playtime": 24
+  },
+  {
+    "appId": 219540,
+    "title": "Arma 2: Operation Arrowhead Beta (Obsolete)",
+    "playtime": 0
+  },
+  {
+    "appId": 219640,
+    "title": "Chivalry: Medieval Warfare",
+    "playtime": 1548
+  },
+  {
+    "appId": 221380,
+    "title": "Age of Empires II (2013)",
+    "playtime": 144
+  },
+  {
+    "appId": 222750,
+    "title": "Wargame: AirLand Battle",
+    "playtime": 342
+  },
+  {
+    "appId": 222880,
+    "title": "Insurgency",
+    "playtime": 762
+  },
+  {
+    "appId": 227940,
+    "title": "Heroes & Generals",
+    "playtime": 5850
+  },
+  {
+    "appId": 230410,
+    "title": "Warframe",
+    "playtime": 120
+  },
+  {
+    "appId": 232090,
+    "title": "Killing Floor 2",
+    "playtime": 13860
+  },
+  {
+    "appId": 235540,
+    "title": "Warhammer: End Times - Vermintide",
+    "playtime": 2568
+  },
+  {
+    "appId": 236390,
+    "title": "War Thunder",
+    "playtime": 10668
+  },
+  {
+    "appId": 236830,
+    "title": "Red Orchestra 2: Heroes of Stalingrad - Single Player",
+    "playtime": 0
+  },
+  {
+    "appId": 238960,
+    "title": "Path of Exile",
+    "playtime": 30
+  },
+  {
+    "appId": 244210,
+    "title": "Assetto Corsa",
+    "playtime": 798
+  },
+  {
+    "appId": 261550,
+    "title": "Mount & Blade II: Bannerlord",
+    "playtime": 732
+  },
+  {
+    "appId": 271590,
+    "title": "Grand Theft Auto V Legacy",
+    "playtime": 1692
+  },
+  {
+    "appId": 301520,
+    "title": "Robocraft",
+    "playtime": 222
+  },
+  {
+    "appId": 327070,
+    "title": "Gloria Victis",
+    "playtime": 780
+  },
+  {
+    "appId": 393380,
+    "title": "Squad",
+    "playtime": 1422
+  },
+  {
+    "appId": 413150,
+    "title": "Stardew Valley",
+    "playtime": 12618
+  },
+  {
+    "appId": 418460,
+    "title": "Rising Storm 2: Vietnam",
+    "playtime": 11526
+  },
+  {
+    "appId": 431960,
+    "title": "Wallpaper Engine",
+    "playtime": 1182
+  },
+  {
+    "appId": 460930,
+    "title": "Tom Clancy's Ghost Recon® Wildlands",
+    "playtime": 240
+  },
+  {
+    "appId": 489940,
+    "title": "BATTALION: Legacy",
+    "playtime": 702
+  },
+  {
+    "appId": 496300,
+    "title": "Kingdom: New Lands",
+    "playtime": 0
+  },
+  {
+    "appId": 530700,
+    "title": "Argo",
+    "playtime": 2346
+  },
+  {
+    "appId": 550650,
+    "title": "Black Squad",
+    "playtime": 210
+  },
+  {
+    "appId": 553850,
+    "title": "HELLDIVERS™ 2",
+    "playtime": 16764
+  },
+  {
+    "appId": 581320,
+    "title": "Insurgency: Sandstorm",
+    "playtime": 27594
+  },
+  {
+    "appId": 599140,
+    "title": "Graveyard Keeper",
+    "playtime": 654
+  },
+  {
+    "appId": 629760,
+    "title": "MORDHAU",
+    "playtime": 3174
+  },
+  {
+    "appId": 671860,
+    "title": "BattleBit Remastered",
+    "playtime": 11946
+  },
+  {
+    "appId": 674020,
+    "title": "World War 3",
+    "playtime": 24126
+  },
+  {
+    "appId": 680420,
+    "title": "OUTRIDERS",
+    "playtime": 1596
+  },
+  {
+    "appId": 686810,
+    "title": "Hell Let Loose",
+    "playtime": 22260
+  },
+  {
+    "appId": 690790,
+    "title": "DiRT Rally 2.0",
+    "playtime": 3210
+  },
+  {
+    "appId": 701160,
+    "title": "Kingdom Two Crowns",
+    "playtime": 8988
+  },
+  {
+    "appId": 714010,
+    "title": "Aimlabs",
+    "playtime": 9570
+  },
+  {
+    "appId": 774941,
+    "title": "Squad - Public Testing",
+    "playtime": 0
+  },
+  {
+    "appId": 824270,
+    "title": "KovaaK's",
+    "playtime": 720
+  },
+  {
+    "appId": 1058650,
+    "title": "Beyond The Wire",
+    "playtime": 624
+  },
+  {
+    "appId": 1085660,
+    "title": "Destiny 2",
+    "playtime": 2484
+  },
+  {
+    "appId": 1086940,
+    "title": "Baldur's Gate 3",
+    "playtime": 4326
+  },
+  {
+    "appId": 1091500,
+    "title": "Cyberpunk 2077",
+    "playtime": 7260
+  },
+  {
+    "appId": 1144200,
+    "title": "Ready or Not",
+    "playtime": 210
+  },
+  {
+    "appId": 1151340,
+    "title": "Fallout 76",
+    "playtime": 4068
+  },
+  {
+    "appId": 1206240,
+    "title": "Talvisota - Winter War",
+    "playtime": 180
+  },
+  {
+    "appId": 1234620,
+    "title": "Tinker Racers",
+    "playtime": 6
+  },
+  {
+    "appId": 1282100,
+    "title": "Remnant II",
+    "playtime": 426
+  },
+  {
+    "appId": 1363080,
+    "title": "Manor Lords",
+    "playtime": 714
+  },
+  {
+    "appId": 1604030,
+    "title": "V Rising",
+    "playtime": 540
+  },
+  {
+    "appId": 1643320,
+    "title": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+    "playtime": 2886
+  },
+  {
+    "appId": 1794680,
+    "title": "Vampire Survivors",
+    "playtime": 9030
+  },
+  {
+    "appId": 1808500,
+    "title": "ARC Raiders",
+    "playtime": 2322
+  },
+  {
+    "appId": 1836200,
+    "title": "Fallout 76 Public Test Server",
+    "playtime": 0
+  },
+  {
+    "appId": 1849250,
+    "title": "EA SPORTS™ WRC",
+    "playtime": 3054
+  },
+  {
+    "appId": 1867240,
+    "title": "WARDOGS",
+    "playtime": 2202
+  },
+  {
+    "appId": 2183900,
+    "title": "Warhammer 40,000: Space Marine 2",
+    "playtime": 774
+  },
+  {
+    "appId": 2334730,
+    "title": "Death Must Die",
+    "playtime": 15708
+  },
+  {
+    "appId": 2427520,
+    "title": "ARC Raiders Playtest",
+    "playtime": 120
+  },
+  {
+    "appId": 2479810,
+    "title": "Gray Zone Warfare",
+    "playtime": 240
+  },
+  {
+    "appId": 2507950,
+    "title": "Delta Force",
+    "playtime": 7662
+  },
+  {
+    "appId": 2694490,
+    "title": "Path of Exile 2",
+    "playtime": 5436
+  },
+  {
+    "appId": 2807960,
+    "title": "Battlefield™ 6",
+    "playtime": 19878
+  },
+  {
+    "appId": 3081410,
+    "title": "Battlefield™ 6 Open Beta",
+    "playtime": 1086
+  },
+  {
+    "appId": 3240220,
+    "title": "Grand Theft Auto V Enhanced",
+    "playtime": 0
+  },
+  {
+    "appId": 3917090,
+    "title": "Assetto Corsa Rally",
+    "playtime": 294
+  }
+]

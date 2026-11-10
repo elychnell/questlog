@@ -1,9 +1,10 @@
-import type { Game } from "../types/types";
+import type { GameWithPlaytime } from "../types/types";
 import placeholderBox from "../assets/placeholderBox.webp";
 import { Gamepad2, Monitor, Smartphone } from "lucide-react";
+import { formatPlaytime } from "../utils/formatPlaytime";
 
 type GameCardProps = {
-    game: Game;
+    game: GameWithPlaytime;
     variant?: 'list' | 'detail';
 };
 
@@ -67,6 +68,9 @@ if (variant === 'detail') {
       {game.platform}
       </p>
     </div>
+    {game.playtime !== null && (
+    <p>Played: {formatPlaytime(game.playtime)}</p>
+    )}
     <div className="flex flex-col items-center gap-1">
       <p className="text-text-secondary text-sm">Status</p>
       <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${style}`}>{label}</span>
@@ -108,6 +112,9 @@ if (variant === 'detail') {
       {game.platform}
     </p>
     </div>
+    {game.playtime !== null && (
+    <p>Played: {formatPlaytime(game.playtime)}</p>
+    )}
     <div className="flex flex-col items-center gap-1">
       <p className="text-text-secondary text-sm">Status</p>
       <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${style}`}>{label}</span>

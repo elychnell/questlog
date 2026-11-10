@@ -10,7 +10,8 @@ function GameDetailPage() {
   const { game, isLoading, error } = useGame(id);
   const { deleteGame, isDeleting, error:deleteError } = useDeleteGame(id);
   const navigate = useNavigate();
-  const { enrichGame } = useSteamData([]);
+
+  const { enrichGame } = useSteamData(game ? [game] : []);
   const enrichedGame = game ? enrichGame(game) : null;
 
 const handleDeleteGame = async () => {

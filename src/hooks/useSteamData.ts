@@ -1,34 +1,25 @@
 import useLocalStorage from "./useLocalStorage";
-import type { SteamSnapshot, SteamMatches, Game, GameWithPlaytime } from "../types/types";
+import type { Game, GameWithPlaytime, ManualPlaytime } from "../types/types";
 import matchSteamGames from "../utils/matchSteamGames";
-import { useEffect } from "react";
+import steamLibrary from "../data/steamLibrary.json";
 
 function useSteamData(games: Game[]) {
+  const [manualPlaytimes, setManualPlaytimes] =
+    useLocalStorage<ManualPlaytime>("manualPlaytimes", {});
 
-  const [steamSnapshot, setSteamSnapshot] =
-    useLocalStorage<SteamSnapshot | null>("steamSnapshot", null);
+  const steamMatches = matchSteamGames(games, steamLibrary);
 
-  const [steamMatches, setSteamMatches] =
-    useLocalStorage<SteamMatches>("steamMatches", {});
-
-  useEffect(() => {
-  if (!steamSnapshot) return;
-
-  const newMatches = matchSteamGames(games, steamSnapshot.games);
-  setSteamMatches(newMatches);
-}, [games, steamSnapshot, setSteamMatches]);
-
-
-const enrichGame = (game: Game): GameWithPlaytime => {
-  return {
+  const enrichGame = (game: Game): GameWithPlaytime => ({
     ...game,
-    playtime: steamMatches[game.id]?.playtime ?? null,
-  };
-};
+    playtime:
+      manualPlaytimes[game.id] ??
+      steamMatches[game.id]?.playtime ??
+      null,
+  });
 
   return {
-    steamSnapshot,
-    setSteamSnapshot,
+    manualPlaytimes,
+    setManualPlaytimes,
     steamMatches,
     enrichGame,
   };

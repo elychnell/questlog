@@ -12,15 +12,12 @@ export type GameWithPlaytime = Game & {
   playtime: number | null;
 };
 
+export type ManualPlaytime = Record<string, number>;
+
 export type SteamGameData = {
   appId: number;
   title: string;
   playtime: number; // minuter
-};
-
-export type SteamSnapshot = {
-  importedAt: string;
-  games: SteamGameData[];
 };
 
 export type SteamGameMatch = {
