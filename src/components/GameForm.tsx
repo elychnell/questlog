@@ -117,7 +117,7 @@ const labelStyle =
     type="number"
     name="playtime"
     min={0}
-    step={0.5}
+    step={0.1}
     value={playtime !== null ? playtime / 60 : ''}
     onChange={handlePlaytimeChange}
     />
@@ -155,6 +155,7 @@ const labelStyle =
     <textarea
     className={inputStyle}
     name="notes"
+    rows={7}
     maxLength={1000}
     value={gameData.notes}
     onChange={handleChange}

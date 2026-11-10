@@ -90,7 +90,7 @@ if (variant === 'detail') {
     )}
     <div className="flex flex-col items-center gap-1">
     <p className="text-text-secondary text-sm">Notes</p>
-    <span className="text-base text-text">{game.notes}</span>
+    <span className="text-base text-text whitespace-pre-wrap">{game.notes}</span>
     </div>
     </div>
     );
