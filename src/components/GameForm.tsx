@@ -50,13 +50,19 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   await onSave(gameData);
 }
 
+const inputStyle =
+  "w-full rounded-lg border border-surface-secondary bg-surface-secondary px-3 py-2 text-text placeholder:text-text-secondary focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
+
+const labelStyle =
+  "flex flex-col gap-1 text-sm font-medium text-text-secondary";
 
   return (
     <section>
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-    <label>
+    <label className={labelStyle}>
     Title:
     <input
+    className={inputStyle}
     type="text"
     name="title"
     required
@@ -65,9 +71,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     onChange={handleChange}
     />
     </label>
-    <label>
+    <label className={labelStyle}>
     Cover URL:
     <input
+    className={inputStyle}
     type="text"
     name="coverUrl"
     pattern="https?://.+"
@@ -76,9 +83,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     onChange={handleChange}
     />
     </label>
-    <label>
+    <label className={labelStyle}>
     Platform:
     <input
+    className={inputStyle}
     type="text"
     name="platform"
     required
@@ -87,9 +95,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     onChange={handleChange}
     />
     </label>
-    <label>
+    <label className={labelStyle}>
     Status:
     <select
+    className={inputStyle}
     name="status"
     value={gameData.status}
     onChange={handleChange}
@@ -101,9 +110,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       ))}
     </select>
     </label>
-    <label>
+    <label className={labelStyle}>
     Rating:
     <input
+    className={inputStyle}
     type="number"
     name="rating"
     min={1}
@@ -113,9 +123,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     onChange={handleChange}
     />
     </label>
-    <label>
+    <label className={labelStyle}>
     Notes:
     <textarea
+    className={inputStyle}
     name="notes"
     maxLength={1000}
     value={gameData.notes}
@@ -123,6 +134,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     />
     </label>
     <button
+    className="rounded-lg bg-primary px-4 py-2 font-semibold text-background transition-colors hover:bg-primary-soft disabled:cursor-not-allowed disabled:opacity-50"
     type="submit"
     disabled={isSaving}
     >{submitLabel}</button>

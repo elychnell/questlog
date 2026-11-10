@@ -3,13 +3,16 @@ import useGame from "../hooks/useGame";
 import { useDeleteGame } from "../hooks/useGames";
 import GameCard from "../components/GameCard";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
+import useSteamData from "../hooks/useSteamData";
 
 function GameDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { game, isLoading, error } = useGame(id);
   const { deleteGame, isDeleting, error:deleteError } = useDeleteGame(id);
   const navigate = useNavigate();
-  
+  const { enrichGame } = useSteamData([]);
+  const enrichedGame = game ? enrichGame(game) : null;
+
 const handleDeleteGame = async () => {
   const confirmed = window.confirm("Are you sure you want to delete this game?");
   if (!confirmed) { return; }
@@ -23,13 +26,13 @@ const handleDeleteGame = async () => {
       <ArrowLeft size={16} />
       <span>Back to games</span>
     </Link>
-    <h1 className="font-bold text-center mt-4">Game details</h1>
+    <h1 className="font-bold text-center mt-0.25">Game details</h1>
     {isLoading && <p>Loading game details...</p>}
     {error && <p className="whitespace-pre-line">{error}</p>}
     {!isLoading && !error && !game && (<p>Game not found.</p>)}
-    {!isLoading && !error && game && (
+    {!isLoading && !error && enrichedGame && (
       <>
-        <GameCard game={game} variant="detail" />
+        <GameCard game={enrichedGame} variant="detail" />
         <div className="flex flex-row items-center justify-center gap-4 mt-4">
         <Link to={`/games/${id}/edit`} className="text-blue-500 hover:underline flex flex-row items-center gap-2"><Pencil size={18} /><span>Edit Game</span></Link>
         <button

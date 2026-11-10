@@ -1,8 +1,9 @@
 import GameForm from "../components/GameForm";
 import { useUpdateGame } from "../hooks/useGames";
 import useGame from "../hooks/useGame";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import type { GameFormData } from "../types/types";
+import { ArrowLeft } from "lucide-react";
 
 function EditGamePage() {
   const { id } = useParams<{ id: string }>();
@@ -51,8 +52,13 @@ console.log('PATCH payload:', changedData);
 if (isLoading) return <p>Loading game...</p>;
 if (fetchError) return <p className="whitespace-pre-line">{fetchError}</p>;
 if (!game) return <p>Game not found.</p>;
-return (<section>
-  <h1>Edit a game</h1>
+return (
+<section>
+  <Link to={`/games/${game.id}`} className="flex flex-row items-center gap-2">
+      <ArrowLeft size={16} />
+      <span>Back to game</span>
+  </Link>
+  <h1 className="font-bold text-center mt-0.25">Edit a game</h1>
   <GameForm 
     onSave={handleUpdateGame}
     initialData={{
@@ -67,7 +73,8 @@ return (<section>
     error={updateError}
     submitLabel="Update Game"
   />
-  </section>);
+</section>
+);
 }
 
 export default EditGamePage;

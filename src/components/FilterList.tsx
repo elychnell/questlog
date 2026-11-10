@@ -16,14 +16,14 @@ const filters: { label: string; value: Filter }[] = [
 function FilterList({ activeFilter, setActiveFilter }: FilterListProps) {
 
   return (
-  <ul className="max-w-[22em] flex justify-center flex-wrap gap-0.5 text-sm font-medium text-text-secondary">
+  <ul className="max-w-[22em] flex justify-center flex-wrap gap-1 text-sm font-medium">
     {filters.map((filter) => (
       <li key={filter.value}>
         <button
-          className={`rounded-lg px-3 py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-primary ${
-            activeFilter === filter.value
-              ? 'bg-surface-secondary text-text'
-              : 'hover:bg-surface-secondary'
+          className={`rounded-lg border px-3 py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+          activeFilter === filter.value
+          ? 'border-primary bg-primary text-background'
+          : 'border-surface-secondary bg-surface text-text-secondary hover:border-primary hover:text-primary'
           }`}
           aria-pressed={activeFilter === filter.value}
           type="button"
