@@ -59,6 +59,14 @@ Organize your collection by status, keep track of playtime, rate your games, and
 
 The application will be available at the local URL provided by Vite.
 
+## Live Demo
+
+[Open Questlog](https://questlog-two-chi.vercel.app/)
+
+## GitHub Repository
+
+[View the source code](https://github.com/elychnell/questlog)
+
 ## API
 
 Questlog uses the Questlog REST API to manage game data.
@@ -77,11 +85,13 @@ Questlog uses custom React hooks to separate data handling and application logic
 - **useGame:** Fetches an individual game using its ID.
 - **useSaveGame, useUpdateGame and useDeleteGame:** Handle creating, updating, and deleting games through the API.
 - **useLocalStorage:** Provides a reusable way to read and persist values in the browser's local storage.
-- **useSteamData:** Matches games against locally stored Steam library data and provides playtime information.
+- **useSteamData:** Matches games against an imported local Steam library and provides playtime information, including manually adjusted playtime.
 
 The API-related hooks handle loading states and errors, allowing page components to focus on displaying data and handling user interactions.
 
-This structure separates responsibilities, reduces duplicated logic, and makes the application easier to maintain and extend. It also makes the hooks reusable across different pages and components.
+This architecture separates data fetching and API operations from the UI components. By keeping this logic in custom hooks, the page components do not need to manage API requests themselves.
+
+This reduces duplicated code, makes the logic reusable, and keeps the application easier to maintain and extend. Each hook has a clear responsibility, making the code more organized and easier to work with.
 
 ## Grade Target
 
