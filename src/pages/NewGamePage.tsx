@@ -31,7 +31,7 @@ const handleSaveGame = async (gameData: GameFormData, playtime: number | null) =
 }
 return (
 <section>
-  <Link to="/" className="flex flex-row items-center gap-2">
+  <Link to="/" className="flex items-center gap-2 text-text-secondary transition-colors hover:text-primary">
     <ArrowLeft size={16} />
     <span>Back to games</span>
   </Link>

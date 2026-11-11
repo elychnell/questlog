@@ -13,9 +13,15 @@ function GameCard({ game, variant = 'list' }: GameCardProps) {
 const titleLength = game.title.length;
 
 const titleSize =
-titleLength > 30 ? "text-base" :
-titleLength > 20 ? "text-lg" :
-"text-xl";
+titleLength > 30 ? "text-base lg:text-lg" :
+titleLength > 20 ? "text-lg lg:text-xl" :
+"text-xl sm:text-2xl";
+
+const titleSizeDetail =
+titleLength > 30 ? "text-xl sm:text-2xl" :
+titleLength > 20 ? "text-2xl sm:text-3xl" :
+"text-3xl sm:text-4xl";
+
 
 const platform = game.platform.toLowerCase();
 
@@ -53,35 +59,48 @@ const statusStyles = {
 };
 const { label, style } = statusStyles[game.status];
 
+const [title, subtitle] = game.title.split(/:\s*/, 2);
 
 if (variant === 'detail') {
     return (
-    <div className="flex flex-col items-center gap-4 bg-surface border border-surface-secondary rounded-lg p-4">
-      <h2 className="text-2xl font-bold">{game.title}</h2>
+    <div className="flex flex-col items-center gap-4 bg-surface border border-surface-secondary rounded-lg p-4 mx-auto max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">
+      <h2 className={`w-full min-w-0 text-center break-words whitespace-normal font-heading font-semibold text-primary ${titleSizeDetail}`}>
+      {title}
+      {subtitle && (
+      <>
+      <span>:</span>
+      <span className="block text-base text-primary-soft font-normal sm:text-lg">
+        {subtitle}
+      </span>
+      </>
+      )}
+      </h2>
       <img
-      className="w-48 h-auto mr-4"
+      className="w-48 h-auto mr-4 sm:w-58 lg:w-64"
       src={game.coverUrl || placeholderBox}
       alt={`${game.title} cover`} />
+      <div className="sm:flex sm:flex-row sm:gap-7.5">
       <div className="flex w-full min-w-0 items-center justify-center gap-1">
       {platformIcon}
       <p className="min-w-0 break-words text-sm text-center">
       {game.platform}
       </p>
-    </div>
+      </div>
     {game.playtime !== null && (
-    <p>Played: {formatPlaytime(game.playtime)}</p>
+    <p className="whitespace-nowrap text-sm font-medium sm:text-base">Played: {formatPlaytime(game.playtime)}</p>
     )}
-    <div className="flex flex-col items-center gap-1">
-      <p className="text-text-secondary text-sm">Status</p>
+    </div>
+    <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
+      <p className="text-text-secondary text-sm sm:text-base">Status</p>
       <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${style}`}>{label}</span>
     </div>
     {game.rating === null ? (
-      <div className="flex flex-col items-center gap-1">
-        <p className="text-text-secondary text-sm">Rating</p>
+      <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
+        <p className="text-text-secondary text-sm sm:text-base">Rating</p>
         <p className="text-2xl">Not rated</p>
       </div>) : (
-    <div className="flex flex-col items-center gap-1">
-      <span className="text-text-secondary text-sm">Rating</span>
+    <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
+      <span className="text-text-secondary text-sm sm:text-base">Rating</span>
       <p className="text-yellow-400 text-3xl tracking-wide">
       {'★'.repeat(game.rating)}
       {'☆'.repeat(5 - game.rating)}
@@ -89,7 +108,7 @@ if (variant === 'detail') {
     </div>
     )}
     <div className="flex flex-col items-center gap-1">
-    <p className="text-text-secondary text-sm">Notes</p>
+    <p className="text-text-secondary text-sm sm:text-base">Notes</p>
     <span className="text-base text-text whitespace-pre-wrap">{game.notes}</span>
     </div>
     </div>
@@ -97,14 +116,22 @@ if (variant === 'detail') {
   }
 
   return (
-  <div className="flex w-full min-w-0 box-border flex-row items-center gap-2 border border-surface-secondary rounded-lg bg-surface p-2">
+  <div className="flex min-w-0 max-w-sm box-border flex-row items-center mx-auto gap-2 border border-surface-secondary rounded-lg bg-surface p-2 sm:max-w-md md:min-h-[260px] lg:max-w-lg 2xl:min-h-[310px]">
     <img
-    className="w-30 shrink-0 h-auto pl-2"
+    className="w-30 shrink-0 h-auto pl-2 sm:w-38 sm:pl-4"
     src={game.coverUrl || placeholderBox}
     alt={`${game.title} cover`} />
     <div className="flex flex-col min-w-0 flex-1 items-center gap-1 text-center">
-    <h2 className={`w-full min-w-0 max-w-full break-words whitespace-normal font-heading font-semibold ${titleSize}`}>
-      {game.title}
+    <h2 className={`w-full min-w-0 max-w-full break-words whitespace-normal font-heading font-semibold text-primary ${titleSize}`}>
+      {title}
+      {subtitle && (
+      <>
+      <span>:</span>
+      <span className="block text-base text-primary-soft font-normal sm:text-lg">
+        {subtitle}
+      </span>
+      </>
+      )}
     </h2>
     <div className="flex w-full min-w-0 items-center justify-center gap-1">
       {platformIcon}

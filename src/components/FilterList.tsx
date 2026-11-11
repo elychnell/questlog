@@ -16,7 +16,7 @@ const filters: { label: string; value: Filter }[] = [
 function FilterList({ activeFilter, setActiveFilter }: FilterListProps) {
 
   return (
-  <ul className="max-w-[22em] flex justify-center flex-wrap gap-1 text-sm font-medium">
+  <ul className="max-w-[22em] sm:max-w-full flex justify-center flex-wrap gap-1 text-sm font-medium mx-auto">
     {filters.map((filter) => (
       <li key={filter.value}>
         <button

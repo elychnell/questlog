@@ -45,7 +45,7 @@ let result: number = 0;
   </h2>
   <FilterList activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
   <SortControl sortBy={sortBy} setSortBy={setSortBy} sortOrder={sortOrder} setSortOrder={setSortOrder} />
-  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-4 min-w-0">
+  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 2xl:max-w-[1500px] mx-auto gap-4 mt-4 min-w-0">
     {isLoading && <p>Loading games...</p>}
     {error && <p className="whitespace-pre-line">{error}</p>}
     {!isLoading && !error && games.length === 0 && <p>No games found.</p>}

@@ -23,7 +23,7 @@ const handleDeleteGame = async () => {
   };
 
   return (<section>
-    <Link to="/" className="flex flex-row items-center gap-2">
+    <Link to="/" className="flex items-center gap-2 text-text-secondary transition-colors hover:text-primary">
       <ArrowLeft size={16} />
       <span>Back to games</span>
     </Link>
@@ -34,10 +34,13 @@ const handleDeleteGame = async () => {
     {!isLoading && !error && enrichedGame && (
       <>
         <GameCard game={enrichedGame} variant="detail" />
+
         <div className="flex flex-row items-center justify-center gap-4 mt-4">
-        <Link to={`/games/${id}/edit`} className="text-blue-500 hover:underline flex flex-row items-center gap-2"><Pencil size={18} /><span>Edit Game</span></Link>
+        <Link to={`/games/${id}/edit`}
+        className="flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-background transition-colors hover:bg-primary-soft"
+        ><Pencil size={18} /><span>Edit Game</span></Link>
         <button
-        className="flex flex-row items-center gap-2"
+        className="flex items-center justify-center gap-2 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-2 font-semibold text-red-400 transition-colors hover:bg-red-500/20"
         onClick={handleDeleteGame}
         disabled={isDeleting}><Trash2 size={18} /><span>Delete Game</span></button>
         </div>

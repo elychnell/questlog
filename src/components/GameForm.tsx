@@ -73,7 +73,9 @@ const labelStyle =
 
   return (
     <section>
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+    <form
+    className="flex flex-col gap-4 max-w-sm mx-auto mt-4 lg:max-w-md"
+    onSubmit={handleSubmit}>
     <label className={labelStyle}>
     Title:
     <input
