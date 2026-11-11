@@ -78,6 +78,7 @@ if (variant === 'detail') {
       <img
       className="w-48 h-auto mr-4 sm:w-58 md:w-62 lg:w-66"
       src={game.coverUrl || placeholderBox}
+      loading="eager"
       alt={`${game.title} cover`} />
       <div className="sm:flex sm:flex-row sm:gap-7.5">
       <div className="flex w-full min-w-0 items-center justify-center gap-1">
@@ -120,6 +121,7 @@ if (variant === 'detail') {
     <img
     className="w-30 shrink-0 h-auto pl-2 sm:w-38 sm:pl-4"
     src={game.coverUrl || placeholderBox}
+    loading="lazy"
     alt={`${game.title} cover`} />
     <div className="flex flex-col min-w-0 flex-1 items-center gap-1 text-center">
     <h2 className={`w-full min-w-0 max-w-full break-words whitespace-normal font-heading font-semibold text-primary ${titleSize}`}>
