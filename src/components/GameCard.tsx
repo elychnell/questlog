@@ -1,6 +1,6 @@
 import type { GameWithPlaytime } from "../types/types";
 import placeholderBox from "../assets/placeholderBox.webp";
-import { Gamepad2, Monitor, Smartphone } from "lucide-react";
+import { Gamepad2, Monitor, Smartphone, Clock3 } from "lucide-react";
 import { formatPlaytime } from "../utils/formatPlaytime";
 
 type GameCardProps = {
@@ -63,7 +63,7 @@ const [title, subtitle] = game.title.split(/:\s*/, 2);
 
 if (variant === 'detail') {
     return (
-    <div className="flex flex-col items-center gap-4 bg-surface border border-surface-secondary rounded-lg p-4 mx-auto max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">
+    <div className="flex flex-col items-center gap-4 bg-surface border border-surface-secondary rounded-lg p-4 mx-auto max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl">
       <h2 className={`w-full min-w-0 text-center break-words whitespace-normal font-heading font-semibold text-primary ${titleSizeDetail}`}>
       {title}
       {subtitle && (
@@ -76,7 +76,7 @@ if (variant === 'detail') {
       )}
       </h2>
       <img
-      className="w-48 h-auto mr-4 sm:w-58 lg:w-64"
+      className="w-48 h-auto mr-4 sm:w-58 md:w-62 lg:w-66"
       src={game.coverUrl || placeholderBox}
       alt={`${game.title} cover`} />
       <div className="sm:flex sm:flex-row sm:gap-7.5">
@@ -87,7 +87,7 @@ if (variant === 'detail') {
       </p>
       </div>
     {game.playtime !== null && (
-    <p className="whitespace-nowrap text-sm font-medium sm:text-base">Played: {formatPlaytime(game.playtime)}</p>
+    <p className="whitespace-nowrap text-sm font-medium flex items-center gap-1 sm:text-base"><Clock3 size={16} /> {formatPlaytime(game.playtime)}</p>
     )}
     </div>
     <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
@@ -109,7 +109,7 @@ if (variant === 'detail') {
     )}
     <div className="flex flex-col items-center gap-1">
     <p className="text-text-secondary text-sm sm:text-base">Notes</p>
-    <span className="text-base text-text whitespace-pre-wrap">{game.notes}</span>
+    <span className="text-base lg:text-lg whitespace-pre-wrap">{game.notes}</span>
     </div>
     </div>
     );
@@ -140,7 +140,7 @@ if (variant === 'detail') {
     </p>
     </div>
     {game.playtime !== null && (
-    <p>Played: {formatPlaytime(game.playtime)}</p>
+    <p className="whitespace-nowrap text-sm font-medium flex items-center gap-1 sm:text-base"><Clock3 size={16} />{formatPlaytime(game.playtime)}</p>
     )}
     <div className="flex flex-col items-center gap-1">
       <p className="text-text-secondary text-sm">Status</p>
