@@ -71,6 +71,8 @@ The application will be available at the local URL provided by Vite.
 
 Questlog uses the Questlog REST API to manage game data.
 
+### API handle: `emil-l`
+
 **API endpoint:**
 
 `https://questlog-api.vercel.app/api/emil-l/games`

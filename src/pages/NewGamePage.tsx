@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import type { GameFormData } from "../types/types";
 import { ArrowLeft } from "lucide-react";
 import useSteamData from "../hooks/useSteamData";
+import { useState } from "react";
 
 function NewGamePage() {
 
+const [saveComplete, setSaveComplete] = useState(false);
 const { saveGame, isSaving, error } = useSaveGame();
 const { setManualPlaytimes } = useSteamData([]);
 
@@ -22,10 +24,10 @@ const handleSaveGame = async (gameData: GameFormData, playtime: number | null) =
         [savedGame.id]: playtime,
       }));
     }
-
+  setSaveComplete(true);
     setTimeout(() => {
     navigate(`/games/${savedGame.id}`);
-  }, 1000);
+  }, 1250);
   }
   return savedGame;
 }
@@ -42,6 +44,7 @@ return (
     error={error}
     submitLabel="Add Game"
   />
+  {saveComplete && <p className="text-center text-green-500 mt-2">Game saved successfully! Redirecting...</p>}
 </section>
 );
 }

@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import type { GameFormData } from "../types/types";
 import { ArrowLeft } from "lucide-react";
 import useSteamData from "../hooks/useSteamData";
+import { useState } from "react";
 
 function EditGamePage() {
   const { id } = useParams<{ id: string }>();
@@ -13,62 +14,67 @@ function EditGamePage() {
   const { setManualPlaytimes, enrichGame } = useSteamData(game ? [game] : []);
   const enrichedGame = game ? enrichGame(game) : null;
   const navigate = useNavigate();
+  const [updateComplete, setUpdateComplete] = useState(false);
 
-  const handleUpdateGame = async (gameData: GameFormData, playtime: number | null) => {
+ const handleUpdateGame = async (gameData: GameFormData, playtime: number | null) => {
   if (!game) return undefined;
-  const changedData: Partial<GameFormData> = {};
-     console.log('Original game:', game);
-     console.log('New game data:', gameData);
 
-  if (game) {
+  const changedData: Partial<GameFormData> = {};
+
   if (gameData.title !== game.title) {
-  changedData.title = gameData.title;
+    changedData.title = gameData.title;
   }
+
   if (gameData.coverUrl !== game.coverUrl) {
-  changedData.coverUrl = gameData.coverUrl;
+    changedData.coverUrl = gameData.coverUrl;
   }
+
   if (gameData.platform !== game.platform) {
-  changedData.platform = gameData.platform;
+    changedData.platform = gameData.platform;
   }
+
   if (gameData.status !== game.status) {
-  changedData.status = gameData.status;
+    changedData.status = gameData.status;
   }
+
   if (gameData.rating !== game.rating) {
-  changedData.rating = gameData.rating;
+    changedData.rating = gameData.rating;
   }
+
   if (gameData.notes !== game.notes) {
-  changedData.notes = gameData.notes;
+    changedData.notes = gameData.notes;
   }
-  console.log('PATCH payload:', changedData);
-  }
+
   let updatedGame = game;
 
   if (Object.keys(changedData).length > 0) {
-  const result = await updateGame(changedData);
+    const result = await updateGame(changedData);
 
-  if (!result) return undefined;
+    if (!result) return undefined;
 
-  updatedGame = result;
+    updatedGame = result;
   }
 
   setManualPlaytimes((prev) => {
-  const updated = { ...prev };
+    const updated = { ...prev };
 
-  if (playtime === null) {
-    delete updated[game.id];
-  } else {
-    updated[game.id] = playtime;
-  }
+    if (playtime === null) {
+      delete updated[game.id];
+    } else {
+      updated[game.id] = playtime;
+    }
 
-  return updated;
+    return updated;
   });
 
-setTimeout(() => {
-  navigate(`/games/${updatedGame.id}`);
-}, 1000);
+  setUpdateComplete(true);
 
-return updatedGame;
-}
+  setTimeout(() => {
+    navigate(`/games/${updatedGame.id}`);
+  }, 1250);
+
+  return updatedGame;
+};
 
 if (isLoading) return <p>Loading game...</p>;
 if (fetchError) return <p className="whitespace-pre-line">{fetchError}</p>;
@@ -95,6 +101,7 @@ return (
     error={updateError}
     submitLabel="Update Game"
   />
+  {updateComplete && <p className="text-center text-green-500 mt-2">Game updated successfully! Redirecting...</p>}
 </section>
 );
 }

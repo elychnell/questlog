@@ -4,11 +4,13 @@ import { useDeleteGame } from "../hooks/useGames";
 import GameCard from "../components/GameCard";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import useSteamData from "../hooks/useSteamData";
+import { useState } from "react";
 
 function GameDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { game, isLoading, error } = useGame(id);
   const { deleteGame, isDeleting, error:deleteError } = useDeleteGame(id);
+  const [deleteComplete, setDeleteComplete] = useState(false);
   const navigate = useNavigate();
 
   const { enrichGame } = useSteamData(game ? [game] : []);
@@ -19,7 +21,13 @@ const handleDeleteGame = async () => {
   if (!confirmed) { return; }
 
   const isDeleted = await deleteGame();
-  if (isDeleted) { navigate('/'); }
+
+  if (isDeleted) {
+    setDeleteComplete(true);
+    setTimeout(() => {
+        navigate(`/`);
+              }, 1250);
+   }
   };
 
   return (<section>
@@ -47,6 +55,7 @@ const handleDeleteGame = async () => {
       </>
     )}
     {isDeleting && <p>Deleting game...</p>}
+    {deleteComplete && <p className="text-center text-green-500 mt-2">Game deleted successfully! Redirecting...</p>}
     {deleteError && <p className="text-red-500">{deleteError}</p>}
   </section>);
 }
